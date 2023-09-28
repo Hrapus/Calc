@@ -6,13 +6,12 @@ import com.example.calc.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private var _binding:ActivityMainBinding? = null
-    private val mBinding get() = _binding!!
+   private lateinit var binding:ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        _binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(mBinding.root)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val calc = CalcFragment()
         val fragmentManager = supportFragmentManager

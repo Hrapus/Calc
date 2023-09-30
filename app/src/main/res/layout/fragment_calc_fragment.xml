@@ -15,7 +15,6 @@
         android:background="#000000"
         android:gravity="bottom|end"
         android:padding="10dp"
-        android:text="0.0"
         android:textColor="#FFFFFF"
         android:textSize="60sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
@@ -271,5 +270,6 @@
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

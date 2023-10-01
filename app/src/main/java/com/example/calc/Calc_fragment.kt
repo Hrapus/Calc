@@ -1,11 +1,9 @@
 package com.example.calc
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.calc.databinding.FragmentCalcFragmentBinding
@@ -14,38 +12,33 @@ class CalcFragment :
     Fragment(),
     View.OnClickListener {
 
-    private var _binding: FragmentCalcFragmentBinding? = null
-    // This property is only valid between onCreateView and
-// onDestroyView.
-    private val binding get() = _binding!!
     private lateinit var viewModel: CalcFragmentViewModel
+
+    //private  val viewModel: CalcFragmentViewModel by activityViewModels()
+    lateinit var binding: FragmentCalcFragmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentCalcFragmentBinding.inflate(inflater, container, false)
-        viewModel = ViewModelProvider(this)[CalcFragmentViewModel::class.java]
-        binding.root.setOnClickListener {
-            onClick(it)
-        }
+        viewModel = ViewModelProvider(requireActivity()).get(CalcFragmentViewModel::class.java)
+        //viewModel = ViewModelProvider(this)[CalcFragmentViewModel::class.java]
+        binding = FragmentCalcFragmentBinding.inflate(inflater)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setClickListenerOnBottom()
-        viewModel.inputUser.observe(viewLifecycleOwner){
+        viewModel.inputUser.observe(viewLifecycleOwner) {
             binding.tvScreen.text = it
         }
+        binding.root.setOnClickListener {
+            onClick(it)
+        }
+        setClickListenerOnBottom()
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
 
     override fun onClick(v: View) {
         when (v.id) {
@@ -61,6 +54,7 @@ class CalcFragment :
             R.id.tv9 -> viewModel.setInputUser("9")
             R.id.tvDot -> viewModel.setInputUser(".")
         }
+
     }
 
     private fun setClickListenerOnBottom() {
@@ -80,7 +74,10 @@ class CalcFragment :
         binding.tvMinus.setOnClickListener(this)
         binding.tvMult.setOnClickListener(this)
         binding.tvDiv.setOnClickListener(this)
+    }
 
+    companion object {
+        fun newInstance() = CalcFragment()
     }
 
 }

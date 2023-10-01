@@ -2,25 +2,17 @@ package com.example.calc
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.ViewModelProvider
+import androidx.activity.viewModels
 import com.example.calc.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-
-   private lateinit var binding:ActivityMainBinding
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_main)
 
-        val calc = CalcFragment()
-        val fragmentManager = supportFragmentManager
-
-        val transaction = fragmentManager.beginTransaction()
-        transaction.replace(R.id.fragmentContainerView, calc)
-        transaction.commit()
-
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragmentContainerView, CalcFragment.newInstance())
+            .commit()
     }
 }

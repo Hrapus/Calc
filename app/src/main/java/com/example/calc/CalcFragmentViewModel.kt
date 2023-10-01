@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 
 class CalcFragmentViewModel : ViewModel() {
 
-    private val _inputUser = MutableLiveData<String>()
+    private val _inputUser = MutableLiveData<String>("-")
     val inputUser : LiveData<String> = _inputUser
 
 

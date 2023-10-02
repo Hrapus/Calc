@@ -16,7 +16,7 @@
         android:gravity="bottom|end"
         android:padding="10dp"
         android:textColor="#FFFFFF"
-        android:textSize="60sp"
+        android:textSize="48sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -27,7 +27,8 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,7 +39,6 @@
             android:id="@+id/cardView1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="35dp"
             android:layout_weight="1">
 
             <LinearLayout

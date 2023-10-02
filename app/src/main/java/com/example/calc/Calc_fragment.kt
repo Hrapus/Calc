@@ -52,6 +52,12 @@ class CalcFragment :
             R.id.tv7 -> viewModel.setInputUser("7")
             R.id.tv8 -> viewModel.setInputUser("8")
             R.id.tv9 -> viewModel.setInputUser("9")
+            R.id.tvRes -> viewModel.setInputUser("=")
+            R.id.tvPlus -> viewModel.setInputUser("+")
+            R.id.tvMinus -> viewModel.setInputUser("-")
+            R.id.tvMult -> viewModel.setInputUser("*")
+            R.id.tvDiv -> viewModel.setInputUser("/")
+            R.id.tvScreen -> viewModel.setInputUser("s")
             R.id.tvDot -> viewModel.setInputUser(".")
         }
 
@@ -74,6 +80,7 @@ class CalcFragment :
         binding.tvMinus.setOnClickListener(this)
         binding.tvMult.setOnClickListener(this)
         binding.tvDiv.setOnClickListener(this)
+        binding.tvScreen.setOnClickListener(this)
     }
 
     companion object {
